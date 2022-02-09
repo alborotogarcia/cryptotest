@@ -4,35 +4,27 @@ import ReactDOM from "react-dom"
 import { App } from "./App"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
-import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
-import { createClient as createWSClient } from 'graphql-ws';
+// import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
+// import { createClient as createWSClient } from 'graphql-ws';
+import {BrowserRouter} from 'react-router-dom'
+import {LoginContext, UserContext } from './Context'
+// import { CookiesProvider } from 'react-cookie';
 
-const wsClient = createWSClient({
-  // url: 'ws://localhost:3001/graphql',
-  url: 'ws://cryptoboro.herokuapp.com:3001/graphql',
-});
-
-const client = createClient({
-  // url: 'http://localhost:3001/graphql',
-  url: 'https://cryptoboro.herokuapp.com/graphql',
-  exchanges: [
-    ...defaultExchanges,
-    subscriptionExchange({
-      forwardSubscription: (operation) => ({
-        subscribe: (sink: any) => ({
-          unsubscribe: wsClient.subscribe(operation, sink),
-        }),
-      }),
-    }),
-  ],
-});
 
 ReactDOM.render(
   <React.StrictMode>
     <ColorModeScript />
-    <Provider value={client}>
-      <App />
-    </Provider>
+      {/* <Provider value={client}> */}
+      <BrowserRouter>
+        {/* <CookiesProvider> */}
+          <LoginContext>
+            <UserContext>
+              <App />
+            </UserContext>
+          </LoginContext>
+        {/* </CookiesProvider> */}
+      </BrowserRouter>
+    {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById("root"),
 )

@@ -1,13 +1,29 @@
 import { Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon, Link, Popover, PopoverTrigger,
-    PopoverContent, useColorModeValue, useBreakpointValue, useDisclosure, } from '@chakra-ui/react';
+    PopoverContent, useColorModeValue, useDisclosure, } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 
 import { ColorModeSwitcher } from "./../../ColorModeSwitcher"
-
+import React, { useContext } from 'react';
+import { initialUser } from '../../types';
+import { userContext, loginContext } from '../../Context'
+import {Logo} from '../../Logo'
+// import {useNavigate} from 'react-router-dom';
 
 export const NavBar = () => {
     const { isOpen, onToggle } = useDisclosure();
-  
+    const [userState, setUserState] = useContext<any>(userContext);
+    const [login, onLogin] = useContext<any>(loginContext);
+
+    const logout = () => {
+        setUserState(initialUser)
+    }
+    // const navigate = useNavigate();
+    // const handleSingIn = useCallback(() => navigate('/auth/google', {replace: true}), [navigate]);
+    // const handleSingIn = useCallback(() => navigate('/login', {replace: true}), [navigate]);
+    // const handleSingUp = useCallback(() => navigate('/login', {replace: true}), [navigate]);
+    // const history = useHistory();
+    // const handleOnClick = useCallback(() => history.push('/sample'), [history]);
+
     return (
       <Box>
         <Flex bg={useColorModeValue('white', 'gray.800')}
@@ -24,11 +40,11 @@ export const NavBar = () => {
 
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text textAlign={useBreakpointValue({ base: 'center', md: 'left' })} 
+            <Logo w={8} h={8} pointerEvents="none" ml={7}/>
+            {/* <Text textAlign={useBreakpointValue({ base: 'center', md: 'left' })} 
                 fontFamily={'heading'} color={useColorModeValue('gray.800', 'white')}>
-
               Logo
-            </Text>
+            </Text> */}
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -36,13 +52,15 @@ export const NavBar = () => {
           </Flex>
   
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-            <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
-
+            {/* <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'/login'} >
+              onClick={linkTo}> 
               Sign In
-            </Button>
-            <Button display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600}
-                  color={'white'} bg={'pink.400'} href={'#'} _hover={{ bg: 'pink.300',}} >
-
+              <Link to='/login'>Sign In</Link> 
+            </Button> */}
+            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600}
+                  color={'white'} bg={'pink.400'} _hover={{ bg: 'pink.300',}} onClick={e => {onLogin(!login)}}>
+                  {/* // href={'/login'} > */}
+                  {/* onClick={handleSingUp}> */}
               Sign Up
             </Button>
             <ColorModeSwitcher justifySelf="flex-end" />

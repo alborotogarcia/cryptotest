@@ -39,3 +39,25 @@ export interface CryptoAsset
     vwap24Hr: number;
     explorer: number;
   }
+
+export interface IUser {
+    googleId?: string;
+    twitterId?: string;
+    githubId?: string;
+    username: string;
+    auth?: boolean;
+    token?: string;
+    __v: number;
+    _id: string;
+}
+
+export const initialUser = {
+    googleId: '',
+    twitterId: '',
+    githubId: '',
+    username: '',
+    auth: false,
+    token: '',
+    __v: -1,
+    _id: ''
+}
