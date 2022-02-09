@@ -89,11 +89,12 @@ export const Login = (props:any) => {
     }
 
     const githubLogin = () => {
-        window.open("http://localhost:3001/auth/github", "_self");
+        // window.open("http://localhost:3001/auth/github", "_self");
+        window.open("https://cryptoboro.herokuapp.com/auth/github", "_self");
     }
     
     const twitterLogin = () => {
-        window.location.href = "http://localhost:3001/auth/twitter"
+        window.location.href = "https://cryptoboro.herokuapp.com/auth/twitter"
     }
 
     return (

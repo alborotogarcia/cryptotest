@@ -16,8 +16,10 @@ export const userContext = createContext<any>([{}, () => { }]);
 export const loginContext = createContext<any>([{}, () => { }]);
 export const gqlContext = createContext<any>([{}, () => { }]);
 
-export const authGoogle = 'http://localhost:3001/auth/google'
-export const gqlendpoint = 'http://localhost:3001/graphql'
+// export const authGoogle = 'http://localhost:3001/auth/google'
+// export const gqlendpoint = 'http://localhost:3001/graphql'
+export const authGoogle = 'https://cryptoboro.herokuapp.com/auth/google'
+export const gqlendpoint = 'https://cryptoboro.herokuapp.com/graphql'
 
 export const graphQLClient = new GraphQLClient(gqlendpoint)
 
@@ -34,7 +36,7 @@ export const graphQLClient = new GraphQLClient(gqlendpoint)
 //   return {
 //     headers: {
 //       ...headers,
-//       authorization: token ? `Bearer ${token}` : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhbGJvcm90b2dhcmNpYTc3N0BnbWFpbC5jb20iLCJwcm92aWRlcmlkIjoiMTAwMDkyNjA2NzYwOTk4NTI2MjAyIiwiaWF0IjoxNjQzOTYxOTY1LCJleHAiOjE2NDQwNDgzNjV9.yLItGT3-yo5hjlQXDMwgcwfn5m38W5aWR_5qaWDqejA",
+//       authorization: token ? `Bearer ${token}` : "Bearer ",
 //     }
 //   }
 // });
@@ -50,7 +52,7 @@ export const graphQLClient = new GraphQLClient(gqlendpoint)
 //     // connectionParams: async () => {
 //     //     return {
 //     //       headers: {
-//     //         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsYm9yb3RvZ2FyY2lhNzc3QGdtYWlsLmNvbSIsInN1YiI6MywicHJvdmlkZXJpZCI6IjEwMDA5MjYwNjc2MDk5ODUyNjIwMiIsImlhdCI6MTY0MzkzMjU0MCwiZXhwIjoxNjQ0MDE4OTQwfQ.8tYyNbMWULbkxaRuKRKKVF1BRRmMFBWc9eJJburTwmw`,
+//     //         Authorization: `Bearer `,
 //     //       },
 //     //     };
 //     //   },
@@ -81,7 +83,7 @@ export const UserContext = (props: any) => {
 
     const [user, setUser] = useState(initialUser as IUser);
     useEffect(() => {
-        axios.get("http://localhost:3001/profile", { withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get("https://cryptoboro.herokuapp.com/profile", { withCredentials: true }).then((res: AxiosResponse) => {
             if (res.data) {
                 const { username = '', providerid = '', auth = true, sub = -1 } = { ...res.data };
                 const user = { username: username, googleId: providerid, auth: auth, _id: sub } as IUser
