@@ -142,7 +142,8 @@ export const Async = () => {
 
   useEffect(() => {
     isSubscribedNews.current = true;
-      const token = document.cookie.replace(/(?:(?:^|.*;\s*)session\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      // const token = document.cookie.replace(/(?:(?:^|.*;\s*)session\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      const token = window.location.search.substring(1).split("access_token=")[1]
       const requestHeaders = {
         authorization: token ? `Bearer ${token}` : ''
       }
