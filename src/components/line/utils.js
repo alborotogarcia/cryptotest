@@ -27,8 +27,8 @@ export const formatData = (data) => {
       return val['close'];
     });
   
-    priceArr.reverse();
-    dates.reverse();
+    // priceArr.reverse();
+    // dates.reverse();
     finalData.labels = dates;
     finalData.datasets[0].data = priceArr;
 

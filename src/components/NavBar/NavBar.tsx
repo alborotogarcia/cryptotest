@@ -6,7 +6,7 @@ import { ColorModeSwitcher } from "./../../ColorModeSwitcher"
 import React, { useContext } from 'react';
 import { initialUser } from '../../types';
 import { userContext, loginContext } from '../../Context'
-import {Logo} from '../../Logo'
+import {Logo} from './Logo'
 // import {useNavigate} from 'react-router-dom';
 
 export const NavBar = () => {
@@ -26,7 +26,8 @@ export const NavBar = () => {
 
     return (
       <Box>
-        <Flex bg={useColorModeValue('white', 'gray.800')}
+        <Flex 
+          bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
           minH={'60px'} py={{ base: 2 }} px={{ base: 4 }} borderBottom={1} borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')} align={'center'}>
@@ -46,7 +47,7 @@ export const NavBar = () => {
               Logo
             </Text> */}
   
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+            <Flex display={{ base: 'none', md: 'flex' }} ml={5} mt={2}>
               <DesktopNav />
             </Flex>
           </Flex>

@@ -1,4 +1,4 @@
-import { Select } from '@chakra-ui/react';
+import { Select, Text } from '@chakra-ui/react';
 import React, { useState, useEffect, useRef, useContext } from 'react';
 // import { useQuery } from "urql";
 import { CryptoNew } from '../../types'
@@ -255,7 +255,7 @@ export const Async = () => {
     <>
       <Box flexShrink={0}>
         <Box width={{ base: "25em", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} height={{ base: "sm", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}  >
-          <Select variant='filled' placeholder='Select Currency' defaultValue={'ETH-EUR'} onChange={e => { e.preventDefault(); setPair(e.target.value); handleWS(e.target.value) }}>
+          <Select variant='outline' placeholder='Select Currency' defaultValue={'ETH-EUR'} onChange={e => { e.preventDefault(); setPair(e.target.value); handleWS(e.target.value) }}>
             <option value='SHIB-EUR'>Shiba Inu</option>
             <option value='ETH-EUR'>Ethereum</option>
             <option value='BTC-EUR'>Bitcoin</option>
@@ -265,7 +265,7 @@ export const Async = () => {
             <option value='AAVE-EUR'>AAVE</option>
             <option value='SOL-EUR'>Solana</option>
           </Select>
-          <ButtonGroup variant='outline' spacing='6'>
+          <ButtonGroup variant='outline' spacing='6' my={3}>
             <Button value="1H" onClick={e => { startFilter(e.target as HTMLInputElement) }}>1H</Button>
             <Button value="1D" onClick={e => { startFilter(e.target as HTMLInputElement) }}>1D</Button>
             <Button value="1W" onClick={e => { startFilter(e.target as HTMLInputElement) }}>1W</Button>
@@ -277,7 +277,8 @@ export const Async = () => {
           <Line data={state} options={opts} />
         </Box>
       </Box>
-      <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} width={{ base: "25em", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '6xl' }}>
+      <Box mt={{ base: 32, md: 0 }} ml={{ md: 6 }} width={{ base: "25em", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '6xl' }}>
+        <Text text-fontFamily={"Montserrat"}>Trending News</Text>
         {dataNews?.search?.map(p => <CryptoNewItem key={p.id} cryptoNew={p} />)}
 
       </Box>

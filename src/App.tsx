@@ -17,6 +17,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 // import Assets from './market/Assets'
 import {Login} from './components/Login/Login';
+import {Profile} from './components/Profile/Profile'
 import {NavBar} from './components/NavBar/NavBar'
 import { Routes, Route } from 'react-router-dom'
 import { userContext, loginContext, gqlContext } from './Context'
@@ -69,6 +70,7 @@ export const App = () => {
     <ChakraProvider theme={theme}>
       <NavBar/>
       <Routes>
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/graphql" element={<></>}/>
         <Route path="/" element={<></>}/>
@@ -78,7 +80,7 @@ export const App = () => {
       <ReactQueryDevtools/>
       <Box textAlign="center" fontSize={['sm', 'md', 'lg', 'xl']}>
         {/* <Assets/> */}
-        <Grid minH="100vh" p={['sm', 'md', 'lg', 'xl']} bg="gray.50">
+        <Grid minH="100vh" p={['sm', 'md', 'lg', 'xl']} >
 
           <Flex alignItems="justify-between">
           {/* 
