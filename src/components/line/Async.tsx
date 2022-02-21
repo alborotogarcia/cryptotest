@@ -1,4 +1,4 @@
-import { Select, Text } from '@chakra-ui/react';
+import { Select, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useState, useEffect, useRef, useContext } from 'react';
 // import { useQuery } from "urql";
 import { CryptoNew } from '../../types'
@@ -144,6 +144,7 @@ export const Async = () => {
     isSubscribedNews.current = true;
       // const token = document.cookie.replace(/(?:(?:^|.*;\s*)session\s*\=\s*([^;]*).*$)|^.*$/, "$1");
       const token = window.location.search.substring(1).split("access_token=")[1]
+      window.localStorage.setItem('token', token);
       const requestHeaders = {
         authorization: token ? `Bearer ${token}` : ''
       }
@@ -253,7 +254,7 @@ export const Async = () => {
 
   return (
     <>
-      <Box flexShrink={0}>
+      <Box flexShrink={0} bg={useColorModeValue('white', 'gray.800')}>
         <Box width={{ base: "25em", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} height={{ base: "sm", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}  >
           <Select variant='outline' placeholder='Select Currency' defaultValue={'ETH-EUR'} onChange={e => { e.preventDefault(); setPair(e.target.value); handleWS(e.target.value) }}>
             <option value='SHIB-EUR'>Shiba Inu</option>
@@ -278,7 +279,7 @@ export const Async = () => {
         </Box>
       </Box>
       <Box mt={{ base: 32, md: 0 }} ml={{ md: 6 }} width={{ base: "25em", sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '6xl' }}>
-        <Text text-fontFamily={"Montserrat"}>Trending News</Text>
+        <Text mt={dataNews?.search? 0: 40} >{dataNews?.search? <h3>Trending News</h3> : <h3>Subscribe to see the latest trending news</h3>} </Text>
         {dataNews?.search?.map(p => <CryptoNewItem key={p.id} cryptoNew={p} />)}
 
       </Box>

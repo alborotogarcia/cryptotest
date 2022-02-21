@@ -6,24 +6,43 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 // import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
 // import { createClient as createWSClient } from 'graphql-ws';
-import {BrowserRouter} from 'react-router-dom'
-import {LoginContext, UserContext } from './Context'
-// import { CookiesProvider } from 'react-cookie';
+import { BrowserRouter } from 'react-router-dom'
+import { LoginContext, UserContext } from './Context'
+import { NavBar } from './components/NavBar/NavBar'
 
+// import { CookiesProvider } from 'react-cookie';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/300.css';
+import {
+  ChakraProvider, extendTheme,
+} from "@chakra-ui/react"
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Montserrat',
+    body: 'Montserrat',
+  },
+  initialColorMode: 'system',
+  useSystemColorMode: true,
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <ColorModeScript />
+    <ColorModeScript initialColorMode={theme.initalColorMode} />
+    <ChakraProvider theme={theme} >
       {/* <Provider value={client}> */}
       <BrowserRouter>
         {/* <CookiesProvider> */}
-          <LoginContext>
-            <UserContext>
-              <App />
-            </UserContext>
-          </LoginContext>
+        <LoginContext>
+          <UserContext>
+            <NavBar />
+            <App />
+          </UserContext>
+        </LoginContext>
         {/* </CookiesProvider> */}
       </BrowserRouter>
+    </ChakraProvider>
     {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById("root"),

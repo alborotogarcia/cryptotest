@@ -1,5 +1,5 @@
 import { Box, Flex, Grid } from "@chakra-ui/react"
-import { ReactQueryDevtools } from "react-query/types/devtools"
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Login } from '../Login/Login';
 import { CryptoNewBoard } from "../cryptonew/CryptoNewBoard";
@@ -11,11 +11,11 @@ export const Home = () => {
     const [login, onLogin] = useContext<any>(loginContext);
 
     const queryClient = new QueryClient();
-
-    <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools />
-        <Box textAlign="center" fontSize={['sm', 'md', 'lg', 'xl']}>
-            <Grid minH="100vh" p={['sm', 'md', 'lg', 'xl']} >
+    return <>
+        <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools />
+            <Box textAlign="center" fontSize={['sm', 'md', 'lg', 'xl']}>
+                <Grid minH="100vh" p={['sm', 'md', 'lg', 'xl']} >
                     <Flex alignItems="justify-between">
                         {
                             login ? true : (
@@ -24,7 +24,8 @@ export const Home = () => {
                         }
                         <CryptoNewBoard />
                     </Flex>
-            </Grid>
-        </Box>
-    </QueryClientProvider>
+                </Grid>
+            </Box>
+        </QueryClientProvider>
+    </>
 }
