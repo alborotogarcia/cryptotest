@@ -228,6 +228,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Hire Designers',
-    href: '/profile',
+    href: '/cryptotest/#/profile',
   },
 ];

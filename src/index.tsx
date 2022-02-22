@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 // import { createClient, Provider, subscriptionExchange, defaultExchanges } from 'urql';
 // import { createClient as createWSClient } from 'graphql-ws';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { LoginContext, UserContext } from './Context'
 import { NavBar } from './components/NavBar/NavBar'
 
@@ -30,18 +30,20 @@ const theme = extendTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme} >
-    <ColorModeScript initialColorMode={theme.initalColorMode} />
+      <ColorModeScript initialColorMode={theme.initalColorMode} />
       {/* <Provider value={client}> */}
-      <BrowserRouter>
-        {/* <CookiesProvider> */}
-        <LoginContext>
-          <UserContext>
-            <NavBar />
-            <App />
-          </UserContext>
-        </LoginContext>
-        {/* </CookiesProvider> */}
-      </BrowserRouter>
+      {/* <BrowserRouter> */}
+        <HashRouter>
+          {/* <CookiesProvider> */}
+          <LoginContext>
+            <UserContext>
+              <NavBar />
+              <App />
+            </UserContext>
+          </LoginContext>
+          {/* </CookiesProvider> */}
+        </HashRouter>
+      {/* </BrowserRouter> */}
     </ChakraProvider>
     {/* </Provider> */}
   </React.StrictMode>,

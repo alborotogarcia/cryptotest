@@ -19,10 +19,11 @@ export const App = () => {
   return (
     <>
       <Routes>
+        {/* <Route path="/cryptotest" element={<Home />} /> */}
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/graphql" element={<></>} /> */}
-        <Route path="/cryptotest" element={<Home />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </>
