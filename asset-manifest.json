@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cryptotest/static/css/main.f328085f.css",
-    "main.js": "/cryptotest/static/js/main.fb888499.js",
+    "main.js": "/cryptotest/static/js/main.ea0f318a.js",
     "static/js/377.0ca1fd32.chunk.js": "/cryptotest/static/js/377.0ca1fd32.chunk.js",
     "static/media/logo.svg": "/cryptotest/static/media/logo.d320c892b745d749b940a2341d705883.svg",
     "static/media/montserrat-all-700-normal.woff": "/cryptotest/static/media/montserrat-all-700-normal.81b48f7ab9882a2f3ea9.woff",
@@ -24,11 +24,11 @@
     "static/media/montserrat-vietnamese-300-normal.woff2": "/cryptotest/static/media/montserrat-vietnamese-300-normal.a6012bf6b1eccc4e1806.woff2",
     "index.html": "/cryptotest/index.html",
     "main.f328085f.css.map": "/cryptotest/static/css/main.f328085f.css.map",
-    "main.fb888499.js.map": "/cryptotest/static/js/main.fb888499.js.map",
+    "main.ea0f318a.js.map": "/cryptotest/static/js/main.ea0f318a.js.map",
     "377.0ca1fd32.chunk.js.map": "/cryptotest/static/js/377.0ca1fd32.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f328085f.css",
-    "static/js/main.fb888499.js"
+    "static/js/main.ea0f318a.js"
   ]
 }
