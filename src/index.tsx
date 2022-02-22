@@ -29,8 +29,8 @@ const theme = extendTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ColorModeScript initialColorMode={theme.initalColorMode} />
     <ChakraProvider theme={theme} >
+    <ColorModeScript initialColorMode={theme.initalColorMode} />
       {/* <Provider value={client}> */}
       <BrowserRouter>
         {/* <CookiesProvider> */}
